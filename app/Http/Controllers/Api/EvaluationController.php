@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 class EvaluationController extends Controller
 {
 
-
     private $evaluation;
     private $companyService;
 
@@ -42,7 +41,9 @@ class EvaluationController extends Controller
      */
     public function store(StoreEvaluation $request, $company)
     {
+
         $response = $this->companyService->getCompany($company);
+        
         $status = $response->status();
         if ($status != 200)
         {
